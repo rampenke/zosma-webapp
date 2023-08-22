@@ -22,7 +22,7 @@ const Home = () => {
 	return (
 		<div>
 		<div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>
-		<div style={{fontSize: '1em', padding: '1em'}}>Sample Services Running on Arcturus</div>
+		<div style={{fontSize: '1em', padding: '1em'}}>Demo GenAI Services</div>
 
 		<Card style={{width:cardWith, padding: '1em'}}>
 			<Link to={`/avatar/${demoSubscription}`}>
@@ -40,13 +40,15 @@ const Home = () => {
 				Stable Diffusion V2.1, GenAI system that can create realistic images and art from a description in natural language.
 				</Typography>
 			</CardContent>
-			{/*
+			
 			<CardActions>
+				{/*
 				<Link to={`/avatar/${demoSubscription}`}><Button size="small">Try Demo</Button></Link>
 				<a  href="https://zosma-ai.myshopify.com"> <Button size="small">Subscribe</Button></a>
+				*/}
 				<a  href="https://stablediffusionweb.com/"> <Button size="small">Learn More</Button></a>				
 			</CardActions>
-			*/}
+	
 		</Card>
 		<Card style={{width:cardWith, padding: '1em', margin: '1em'}}>
 			<Link to={`/story/${demoSubscription}`}>
@@ -64,13 +66,15 @@ const Home = () => {
 				LLaMA-2 is a transformers model pretrained on a very large corpus of English data in a self-supervised fashion.
 				</Typography>
 			</CardContent>
-			{/*
+		
 			<CardActions>
+				{/*
 				<Link to={`/story/${demoSubscription}`}><Button size="small">Try Demo</Button></Link>
 				<a  href="https://zosma-ai.myshopify.com"> <Button size="small">Subscribe</Button></a>
+				*/}
 				<a  href="https://ai.meta.com/llama/"> <Button size="small">Learn More</Button></a>				
 			</CardActions>
-			*/}
+			
 		</Card>
 
 		</div>	

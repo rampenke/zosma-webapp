@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {TextField} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
-import ChevronRight from "@material-ui/icons/ChevronRight";
+import Send from "@material-ui/icons/Send";
 import { Autorenew } from "@material-ui/icons";
 
 
@@ -31,15 +31,14 @@ const TextPromptInput = ({classes, enterPressedCallback, disabled, prompt, place
 
     return (
         <TextField className={classes.inputPrompt} id="prompt-input" label={prompt}
-                   helperText="Enter text and click >"
                    placeholder={placeholder} 
                    value={promptText}
-                   onChange={onTextChanged} fullWidth
-                   multiline
-                   rows={numLines}
+                   onChange={onTextChanged} 
+                   onKeyDown={handleTextPromptKeyPressed}
+                   fullWidth
                    InputProps={{
                        endAdornment: <IconButton edge="end" color="primary"> 
-                            <ChevronRight onClick={handleTextPromptButtonPressed}/>
+                            <Send onClick={handleTextPromptButtonPressed}/>
                        </IconButton>
                    }}
                   disabled={disabled} 

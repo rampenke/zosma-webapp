@@ -15,14 +15,14 @@ const Home = () => {
 	let width = window.screen.availWidth;
 	let cardWith;
 	if (width < 720) {
-		cardWith='50%';
+		cardWith='70%';
 	} else {
 		cardWith='50%';
 	}
 	return (
 		<div>
 		<div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>
-		<div style={{fontSize: '1em', padding: '1em'}}>Demo GenAI Services</div>
+		<div style={{fontSize: '1em', padding: '1em'}}>GenAI Services on Zosma Distributed Network</div>
 
 		<Card style={{width:cardWith, padding: '1em'}}>
 			<Link to={`/avatar/${demoSubscription}`}>
@@ -33,17 +33,17 @@ const Home = () => {
 			/>
 			</ Link>
 			<CardContent>
-				<Typography gutterBottom variant="h5" component="div">
+				<Typography gutterBottom variant="subtitle1" component="div">
 				Stable Diffusion
 				</Typography>
 				<Typography variant="body2" color="text.secondary">
-				Stable Diffusion V2.1, GenAI system that can create realistic images and art from a description in natural language.
+				GenAI system from Stability AI, that can create realistic images from a text prompt.
 				</Typography>
 			</CardContent>
 			
-			<CardActions>
-				{/*
+			<CardActions>				
 				<Link to={`/avatar/${demoSubscription}`}><Button size="small">Try Demo</Button></Link>
+				{/*
 				<a  href="https://zosma-ai.myshopify.com"> <Button size="small">Subscribe</Button></a>
 				*/}
 				<a  href="https://stablediffusionweb.com/"> <Button size="small">Learn More</Button></a>				
@@ -59,17 +59,17 @@ const Home = () => {
 			/>
 			</Link>
 			<CardContent>
-				<Typography gutterBottom variant="h5" component="div">
+				<Typography gutterBottom variant="subtitle1" component="div">
 				LLaMA-2
 				</Typography>
 				<Typography variant="body2" color="text.secondary">
-				LLaMA-2 is a transformers model pretrained on a very large corpus of English data in a self-supervised fashion.
+				Large Language Model from Meta AI, pretrained on a very large corpus of English data.
 				</Typography>
 			</CardContent>
 		
-			<CardActions>
-				{/*
+			<CardActions>				
 				<Link to={`/story/${demoSubscription}`}><Button size="small">Try Demo</Button></Link>
+				{/*
 				<a  href="https://zosma-ai.myshopify.com"> <Button size="small">Subscribe</Button></a>
 				*/}
 				<a  href="https://ai.meta.com/llama/"> <Button size="small">Learn More</Button></a>				

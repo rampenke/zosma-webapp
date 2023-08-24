@@ -79,7 +79,7 @@ const AvatarGenerator = ({classes}) => {
 	}
 
 	function enterPressedCallback(promptText) {
-		console.log('API call to DALL-E web service with the following prompt [' + promptText + ']');
+		console.log('API call to web service with the following prompt [' + promptText + ']');
 		setApiError('')
 		setIsFetchingImgs(true)
 		callSDService(backendUrl, promptText, 4, authMsg).then((response) => {
@@ -90,9 +90,9 @@ const AvatarGenerator = ({classes}) => {
 		}).catch((error) => {
 			console.log('Error querying DALL-E service.', error)
 			if (error.message === 'Timeout') {
-				setApiError('Timeout querying DALL-E service (>1min). Consider reducing the images per query or use a stronger backend.')
+				setApiError('Timeout querying service (>1min). Consider reducing the images per query or use a stronger backend.')
 			} else {
-				setApiError('Error querying DALL-E service. Check your backend server logs.')
+				setApiError('Error querying service. Check your backend server logs.')
 			}
 			setIsFetchingImgs(false)
 		})

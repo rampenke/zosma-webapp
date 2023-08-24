@@ -113,7 +113,7 @@ const TextGenerator = ({classes}) => {
 
 		//return <GeneratedImageList generatedImages={generatedImages}/>
 		let response = JSON.parse(generatedStory);
-		return <div style={{ textAlign: "justify"}} dangerouslySetInnerHTML={{ __html: response[0].replace(/\n/g, "<br />") }}></div>
+		return <div style={{ textAlign: "justify", whiteSpace:"pre-wrap"}} dangerouslySetInnerHTML={{ __html: response[0].replace(/\n/g, "<br />") }}></div>
 	}
 
 

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useParams } from 'react-router-dom';
 import withStyles from "@material-ui/core/styles/withStyles";
 import {
-    Card, CardContent,  Typography
+    Card, CardContent,  Typography, Checkbox, FormControlLabel
 } from "@material-ui/core";
 
 import GeneratedImageList from "../components/GeneratedImageList";
@@ -64,6 +64,8 @@ const useStyles = () => ({
 
 const AvatarGenerator = ({classes}) => {
     const [generatedImages, setGeneratedImages] = useState([]);	
+    const [generatedSeeds, setGeneratedSeeds] = useState([-1]);		
+	const [useSeed, setUseSeed] = useState(false);	
     const [generatedImagesFormat, setGeneratedImagesFormat] = useState('png');	
     const [apiError, setApiError] = useState('');
     const [queryTime, setQueryTime] = useState(0);
@@ -82,9 +84,11 @@ const AvatarGenerator = ({classes}) => {
 		console.log('API call to web service with the following prompt [' + promptText + ']');
 		setApiError('')
 		setIsFetchingImgs(true)
-		callSDService(backendUrl, promptText, 4, authMsg).then((response) => {
+		let seed = useSeed ? generatedSeeds[0] : -1
+		callSDService(backendUrl, promptText, seed, authMsg).then((response) => {
 			setQueryTime(response['executionTime'])
 			setGeneratedImages(response['serverResponse']['images'])
+			setGeneratedSeeds(response['serverResponse']['seeds'])
 			//setGeneratedImagesFormat(response['serverResponse']['generatedImgsFormat'])
 			setIsFetchingImgs(false)
 		}).catch((error) => {
@@ -113,6 +117,9 @@ const AvatarGenerator = ({classes}) => {
 		return <GeneratedImageList generatedImages={generatedImages} generatedImagesFormat={generatedImagesFormat} />
 	}
 
+	const handleUseSeed = (event) => {
+		setUseSeed(  event.target.checked );
+	};
 
 	return (
 		<div className={classes.root}>
@@ -131,6 +138,11 @@ const AvatarGenerator = ({classes}) => {
 							placeholder="e.g. An apple on the table" 
 								prompt="Text to Image"
 								numLines = "2" />
+							{generatedImages.length > 0 &&
+							<FormControlLabel
+							control={<Checkbox checked={useSeed} onChange={handleUseSeed} name="imageLock" />}
+							label="Edit Image" />
+							}
 						</CardContent>
 					</Card>
 					{queryTime !== 0 && <Typography variant="body2" color="textSecondary">

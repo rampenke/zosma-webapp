@@ -2,7 +2,7 @@ import JsonBigint from "json-bigint";
 
 const REQUEST_TIMEOUT_SEC = 60000
 
-export async function callSDService(backendUrl, text, numImages, message) {
+export async function callSDService(backendUrl, text, seed, message) {
     const queryStartTime = new Date()
     const response = await Promise.race([
         (await fetch(backendUrl + `/sdapi/v1/txt2img`, {
@@ -26,7 +26,7 @@ export async function callSDService(backendUrl, text, numImages, message) {
                         "hr_resize_y": 512,
                         "denoising_strength": 0.7,
                         "batch_size": 1,
-                        "seed": -1,
+                        "seed": seed,
                         "subseed": -1,
                         "subseed_strength": 0,
                         "sampler_name": "Euler a",
